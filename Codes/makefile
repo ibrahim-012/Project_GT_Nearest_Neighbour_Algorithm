@@ -33,17 +33,17 @@ run_files:
 
 # Rule to create line graph - metrics file will be sorted first
 graphs_line:
-	python3 Metrics_Sort.py
+	make sort_metrics
 	python3 graphs_line.py
 
 # Rule to create scatter plot - metrics file will be sorted first
 graphs_scatter:
-	python3 Metrics_Sort.py
+	make sort_metrics
 	python3 graphs_scatter.py
 
 # Rule to create bar graph - metrics file will be sorted first
 graphs_bar:
-	python3 Metrics_Sort.py
+	make sort_metrics
 	python3 graphs_bar.py
 
 # Rule to remove the executable and object files created by g++ compilation
