@@ -1,18 +1,23 @@
-# Rule to compile serial cpp file
+# Rule to compile and run serial cpp file
+# Run like this | make serial ARG=<filename> e.g. make serial ARG="data_100.txt"
 serial:
 	g++ TSP_Serial.cpp -o TSP_S
 	./TSP_S $(ARG)
 
-# Rule to compile parallel cpp file
+# Rule to compile and run parallel cpp file
+# 4 threads used by default
+# Run like this | make parallel ARG=<filename>  e.g. make parallel ARG="data_100.txt"
 parallel:
 	g++ -fopenmp TSP_Parallel.cpp -o TSP_P
 	./TSP_P $(ARG) 4
 
 # Rule to run serial python
+# Run like this | make py ARG=<filename>  e.g. make py ARG="data_100.txt"
 py:
 	python3 TSP_Serial.py $(ARG)
 
 # Rule to generate data files
+# Run like this | make data ARG=<input size> e.g. make data ARG=2000 creates file data_2000.txt
 data:
 	g++ data_generator.cpp -o data_generator
 	./data_generator $(ARG)
